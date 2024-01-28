@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
     
     private int _playerIndex = 0;
     private List<Player> _players = new List<Player>();
-    private List<Vector2> _positions = new List<Vector2> { new Vector2(-8, 4), new Vector2(8, 4), new Vector2(-8, -4), new Vector2(-8, -4), };
+    private List<Vector2> _positions = new List<Vector2> { new Vector2(-8, 4), new Vector2(8, 4), new Vector2(-8, -4), new Vector2(8, -4) };
     private ImageManager _imageManager;
     private Timer _timer;
     private UIManager _uIManager;
@@ -54,6 +54,7 @@ public class GameManager : MonoBehaviour
         _playerIndex++;
 
         int playerCount = _playerConfiguration == null ? maxAmountOfPlayers : _playerConfiguration.amountOfPlayers;
+        Debug.Log($"Players needed for round : {playerCount}");
         if (_playerIndex > playerCount - 1)
         {
             _playerInputManager.DisableJoining();
@@ -82,7 +83,8 @@ public class GameManager : MonoBehaviour
         _persistentMusic.Stop();
         tickingAudio.Play();
         yield return _imageManager.Fade(0, () => ActivatePlayer(true));
-        yield return _timer.SliderTimer(_imageManager.GetImageTime());
+        float time = _imageManager.GetImageTime() * (4 - _playerIndex)  * 0.5f;
+        yield return _timer.SliderTimer(_imageManager.GetImageTime() + time);
         yield return _timer.CountDown(timeToEndRound, () => ActivatePlayer(false));
         tickingAudio.Stop();
         _persistentMusic.Play();

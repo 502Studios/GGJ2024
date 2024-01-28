@@ -25,8 +25,13 @@ public class UIManager : MonoBehaviour
 
     public void ShowEndPanel()
     {
+        StartCoroutine(DelayedEndPanel());
+    }
+
+    private IEnumerator DelayedEndPanel()
+    {
+        yield return new WaitForSeconds(5);
         endPanel.SetActive(true);
         StartCoroutine(ActivateEventSystem(playAgainButton));
     }
-    
 }
