@@ -46,6 +46,10 @@ public class Player : MonoBehaviour
 
     public void OnPaint(CallbackContext context)
     {
+        if (!_canMove)
+        {
+            return;
+        }
         if (context.performed)
         {
             _isPainting = true;
@@ -66,16 +70,16 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        if (!_canMove)
-        {
-            return;
-        }
         if (_currentDirection.sqrMagnitude > 0)
         {
             _velocity = Vector2.Lerp(_velocity, _currentDirection.normalized * movementSpeed, Time.deltaTime * damping);
             transform.position += new Vector3(_velocity.x, _velocity.y) * Time.deltaTime;
         } else {
             _velocity = Vector3.zero;
+        }
+        if (!_canMove)
+        {
+            return;
         }
         Debug.Log($"Player is painting {_isPainting}");
         if (_isPainting)
