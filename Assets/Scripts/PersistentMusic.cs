@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PersistentObject : MonoBehaviour
+public class PersistentMusic : MonoBehaviour
 {
     private void Awake()
     {
