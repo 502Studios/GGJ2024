@@ -671,14 +671,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1993056555809162428, guid: 6d763e0edc181324587d910dcfbcb0bd, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1993056555809162428, guid: 6d763e0edc181324587d910dcfbcb0bd, type: 3}
-      propertyPath: m_WasSpriteAssigned
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1993056555809162429, guid: 6d763e0edc181324587d910dcfbcb0bd, type: 3}
       propertyPath: m_Name
       value: ImageManager
