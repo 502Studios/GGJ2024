@@ -29,8 +29,8 @@
                     "id": "f33654e8-1498-47ff-ad45-7576e1bb0fe0",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
+                    "interactions": "Press(behavior=2)",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -60,7 +60,7 @@
                     "name": "",
                     "id": "599e9c36-7aa4-4bf6-98b9-566ce292368c",
                     "path": "<Gamepad>/buttonSouth",
-                    "interactions": "",
+                    "interactions": "Hold",
                     "processors": "",
                     "groups": "Game",
                     "action": "Paint",
