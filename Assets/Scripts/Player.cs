@@ -24,9 +24,9 @@ public class Player : MonoBehaviour
         _gameManager.AddPlayer(this);
     }
 
-    public void ActivatePlayer()
+    public void ActivatePlayer(bool value)
     {
-        _canMove = true;
+        _canMove = value;
     }
 
     public void OnPlayerJoined(PlayerInput playerInput)
