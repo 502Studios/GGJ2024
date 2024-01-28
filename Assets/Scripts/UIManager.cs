@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -8,7 +9,13 @@ public class UIManager : MonoBehaviour
     public void ShowStart()
     {
         startPanel.SetActive(true);
-        EventSystem.current.SetSelectedGameObject(startButton);
+        StartCoroutine(ActivateEventSystem(startButton));
+    }
+
+    IEnumerator ActivateEventSystem(GameObject go)
+    {
+        yield return new WaitForSeconds(0.5f);
+        EventSystem.current.SetSelectedGameObject(go);
     }
 
     public void CloseStartPanel()
@@ -19,7 +26,7 @@ public class UIManager : MonoBehaviour
     public void ShowEndPanel()
     {
         endPanel.SetActive(true);
-        EventSystem.current.SetSelectedGameObject(playAgainButton);
+        StartCoroutine(ActivateEventSystem(playAgainButton));
     }
     
 }

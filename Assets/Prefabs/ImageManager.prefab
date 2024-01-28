@@ -97,6 +97,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce6c2f995c9b2a942bdf622eab9e1f96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timeBetweenChanges: 0.25
+  fadeSpeed: 2
   imageList:
   - {fileID: 21300000, guid: 735f84f4d465ca54ea169017207772a2, type: 3}
   - {fileID: 21300000, guid: 60adf818347315c459f0e768247f4313, type: 3}
@@ -108,3 +110,4 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 4a1e5b57c322e3649a6957e2148bd19d, type: 3}
   - {fileID: 21300000, guid: b39743a72e8877d49b9568d41fa2442f, type: 3}
   - {fileID: 21300000, guid: 691bd872d051c174592990fbf2e17340, type: 3}
+  - {fileID: 21300000, guid: ee6800697bde5484f8f3cb603b065871, type: 3}
