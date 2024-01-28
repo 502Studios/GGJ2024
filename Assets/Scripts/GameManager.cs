@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class GameManager : MonoBehaviour
 {
@@ -21,6 +22,7 @@ public class GameManager : MonoBehaviour
     private PlayerConfiguration _playerConfiguration;
     private bool _gameStarted;
     private AudioSource _persistentMusic;
+    private PlayerInputManager _playerInputManager;
 
     private void Awake()
     {
@@ -29,6 +31,7 @@ public class GameManager : MonoBehaviour
         _timer = FindObjectOfType<Timer>();
         _uIManager = FindObjectOfType<UIManager>();
         _persistentMusic = FindObjectOfType<PersistentMusic>().GetComponent<AudioSource>();
+        _playerInputManager = FindObjectOfType<PlayerInputManager>();
     }
 
     public void StartRound()
@@ -51,8 +54,10 @@ public class GameManager : MonoBehaviour
         _playerIndex++;
 
         int playerCount = _playerConfiguration == null ? maxAmountOfPlayers : _playerConfiguration.amountOfPlayers;
-        if (_playerIndex >= playerCount)
+        if (_playerIndex > playerCount - 1)
         {
+            _playerInputManager.DisableJoining();
+            _gameStarted = true;
             _uIManager.ShowStart();
         }
     }
@@ -81,7 +86,9 @@ public class GameManager : MonoBehaviour
         yield return _timer.CountDown(timeToEndRound, () => ActivatePlayer(false));
         tickingAudio.Stop();
         _persistentMusic.Play();
-        yield return _imageManager.Fade(1, () => _uIManager.ShowEndPanel());
-        _gameStarted = true;
+        yield return _imageManager.Fade(1, () => {
+            StartCoroutine(_imageManager.FadeLerp());
+            _uIManager.ShowEndPanel();
+        });
     }
 }

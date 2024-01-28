@@ -101,24 +101,24 @@ MonoBehaviour:
   fadeSpeed: 2
   imageList:
   - sprite: {fileID: 21300000, guid: 6e981f53abc8e5d4fa37297c6529ecbf, type: 3}
-    time: 10
+    time: 20
   - sprite: {fileID: 21300000, guid: 735f84f4d465ca54ea169017207772a2, type: 3}
     time: 10
   - sprite: {fileID: 21300000, guid: 493d43e2d4892af42a0139bbc4b91e02, type: 3}
-    time: 10
+    time: 30
   - sprite: {fileID: 21300000, guid: b39743a72e8877d49b9568d41fa2442f, type: 3}
-    time: 10
+    time: 15
   - sprite: {fileID: 21300000, guid: 4a1e5b57c322e3649a6957e2148bd19d, type: 3}
     time: 10
   - sprite: {fileID: 21300000, guid: 60adf818347315c459f0e768247f4313, type: 3}
-    time: 10
+    time: 15
   - sprite: {fileID: 21300000, guid: 691bd872d051c174592990fbf2e17340, type: 3}
-    time: 10
+    time: 30
   - sprite: {fileID: 21300000, guid: 148ff8dac039a0c4da2679b175dd1d90, type: 3}
-    time: 10
+    time: 15
   - sprite: {fileID: 21300000, guid: a7ec747d58a5afd48ad44f064dda05e5, type: 3}
-    time: 10
+    time: 30
   - sprite: {fileID: 21300000, guid: 391405f8f2ae6d740ac617189facde91, type: 3}
     time: 10
   - sprite: {fileID: 21300000, guid: ee6800697bde5484f8f3cb603b065871, type: 3}
-    time: 10
+    time: 20

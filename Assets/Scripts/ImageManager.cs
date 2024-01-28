@@ -48,6 +48,17 @@ public class ImageManager : MonoBehaviour
         action?.Invoke();
     }
 
+    public IEnumerator FadeLerp()
+    {
+        Color col = _spriteRenderer.color;
+        while (true)
+        {
+            col = new Color(1f, 1f, 1f, Mathf.Cos(Time.time));
+            _spriteRenderer.color = col;
+            yield return null;
+        }
+    }
+
     [Serializable]
     public class ImageItem
     {
