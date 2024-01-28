@@ -425,23 +425,18 @@ MonoBehaviour:
 
     https://opengameart.org/content/clock-ticking
 
-    
 
     Shake
     and Bake by Matthew Pablo
 
     https://opengameart.org/content/shake-and-bake
 
-    
-
-    
 
     Rubik
     Doodle Shadow font by NaN and Luke Prowse
 
     https://fonts.google.com/specimen/Rubik+Doodle+Shadow/about
 
-    
 
     Game
     Icons by Kenney
@@ -1483,7 +1478,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "- Pablo Solares (Tenshi Arts!)\n- Brayan Mench\xFA (Cromatoid)\n- AleTobias\n-
-    Fofo (ADR)\n- Rod Araujo\n- Walter Oliva (bywreed)\n- Sofia (srue1834)\n"
+    Fofo (ADR)\n- Rod Araujo\n- Walter Oliva (bywreed)\n- Sofia (srue1834)\n- Noelia
+    (Ancxot)\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
