@@ -10,7 +10,9 @@ public class GameManager : MonoBehaviour
     public Canvas canvasGO;
     public DrawController drawController;
     public List<Color> playerColors;
-    int _playerIndex = 0;
+    public AudioSource tickingAudio;
+    
+    private int _playerIndex = 0;
     private List<Player> _players = new List<Player>();
     private List<Vector2> _positions = new List<Vector2> { new Vector2(-8, 4), new Vector2(8, 4), new Vector2(-8, -4), new Vector2(-8, -4), };
     private ImageManager _imageManager;
@@ -18,6 +20,7 @@ public class GameManager : MonoBehaviour
     private UIManager _uIManager;
     private PlayerConfiguration _playerConfiguration;
     private bool _gameStarted;
+    private AudioSource _persistentMusic;
 
     private void Awake()
     {
@@ -25,6 +28,7 @@ public class GameManager : MonoBehaviour
         _playerConfiguration = FindObjectOfType<PlayerConfiguration>();
         _timer = FindObjectOfType<Timer>();
         _uIManager = FindObjectOfType<UIManager>();
+        _persistentMusic = FindObjectOfType<PersistentMusic>().GetComponent<AudioSource>();
     }
 
     public void StartRound()
@@ -70,9 +74,13 @@ public class GameManager : MonoBehaviour
     {
         yield return _imageManager.SelectImage();
         yield return _timer.CountDown(timeToStartRound);
+        _persistentMusic.Stop();
+        tickingAudio.Play();
         yield return _imageManager.Fade(0, () => ActivatePlayer(true));
         yield return _timer.SliderTimer(_imageManager.GetImageTime());
         yield return _timer.CountDown(timeToEndRound, () => ActivatePlayer(false));
+        tickingAudio.Stop();
+        _persistentMusic.Play();
         yield return _imageManager.Fade(1, () => _uIManager.ShowEndPanel());
         _gameStarted = true;
     }
