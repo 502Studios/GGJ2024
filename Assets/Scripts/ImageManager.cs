@@ -7,21 +7,14 @@ public class ImageManager : MonoBehaviour
 {
     public float timeBetweenChanges = 0.5f;
     public float fadeSpeed = 10f;
-    public List<Sprite> imageList;
+    public List<ImageItem> imageList;
     private SpriteRenderer _spriteRenderer;
     private float _currentTime;
-    private Timer _timer;
-    private GameManager _gameManager;
+    private int _selectedIndex;
 
     void Awake()
     {
-        _timer = FindObjectOfType<Timer>();
-        _gameManager = FindObjectOfType<GameManager>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
-    }
-
-    private void Start()
-    {
     }
 
     public IEnumerator SelectImage()
@@ -29,11 +22,17 @@ public class ImageManager : MonoBehaviour
         _currentTime = timeBetweenChanges;
         while (_currentTime > 0)
         {
-            _spriteRenderer.sprite = imageList[UnityEngine.Random.Range(0, imageList.Count)];
+            _selectedIndex = UnityEngine.Random.Range(0, imageList.Count);
+            _spriteRenderer.sprite = imageList[_selectedIndex].sprite;
             yield return new WaitForSeconds(timeBetweenChanges);
             _currentTime -= 0.01f;
             Debug.Log($"Current time : {_currentTime}");
         }
+    }
+
+    public int GetImageTime()
+    {
+        return imageList[_selectedIndex].time;
     }
 
     public IEnumerator Fade(float target, Action action = null)
@@ -47,5 +46,12 @@ public class ImageManager : MonoBehaviour
             yield return null;
         }
         action?.Invoke();
+    }
+
+    [Serializable]
+    public class ImageItem
+    {
+        public Sprite sprite;
+        public int time;
     }
 }

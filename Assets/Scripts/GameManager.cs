@@ -71,7 +71,7 @@ public class GameManager : MonoBehaviour
         yield return _imageManager.SelectImage();
         yield return _timer.CountDown(timeToStartRound);
         yield return _imageManager.Fade(0, () => ActivatePlayer(true));
-        yield return _timer.SliderTimer();
+        yield return _timer.SliderTimer(_imageManager.GetImageTime());
         yield return _timer.CountDown(timeToEndRound, () => ActivatePlayer(false));
         yield return _imageManager.Fade(1, () => _uIManager.ShowEndPanel());
         _gameStarted = true;
